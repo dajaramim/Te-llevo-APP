@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>TeLlevoAPP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-text> Recuperar Contraseña</ion-text>
+    <ion-item class="item">
+      <ion-label position="floating">Correo Electrónico</ion-label>
+      <ion-input type="email"  minlength="3" maxlength="8" [(ngModel)]="correo" required></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password"  minlength="4" maxlength="4" [(ngModel)]="password" required></ion-input>
+    </ion-item>
+
+    <div><ion-button color="dark ligth" type="submit" class="center" (click)="enviarCorreo">Enviar</ion-button></div>
+    <ion-link>Recuperar Contraseña </ion-link>
+</ion-card>
+  
+</ion-content>
