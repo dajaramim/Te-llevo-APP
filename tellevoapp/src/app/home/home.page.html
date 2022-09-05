@@ -1,30 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header  >
     <ion-toolbar>
-      <ion-title size="medio">TellevoAPP</ion-title>
+      <ion-title size="medio" style="text-align:center">TellevoAPP</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+<ion-content >
+
+
 
     <ion-card>
       <img src="/assets/conductor.jpg" />
       <ion-card-header>
-        <ion-card-subtitle>Tienes espacio en tu auto?</ion-card-subtitle>
-        <ion-card-title> Lleva a tus compañeros</ion-card-title>
+        <ion-card-subtitle id="texto-card1">Tienes espacio en tu auto?</ion-card-subtitle>
+        <ion-card-title id="texto-card2"> Lleva a tus compañeros</ion-card-title>
       </ion-card-header>
       <ion-card-content>
 
         <section class="full-width">
-          <ion-button expand="full" color="secondary"> Soy Conductor</ion-button>
+          <ion-button [routerLink]="['/inicio']" expand="block" color="secondary"> Soy Conductor</ion-button>
         </section>
 
       </ion-card-content>
@@ -33,27 +27,17 @@
     <ion-card>
       <img src="/assets/Pasajero.jpg" />
       <ion-card-header>
-        <ion-card-subtitle>Vas devuelta a tu casa?</ion-card-subtitle>
-        <ion-card-title> Pide un acercamiento </ion-card-title>
+        <ion-card-subtitle id="texto-card1">Vas devuelta a tu casa?</ion-card-subtitle>
+        <ion-card-title id="texto-card2"> Pide un acercamiento </ion-card-title>
       </ion-card-header>
       <ion-card-content>
 
         <section class="full-width">
-          <ion-button expand="full" color="secondary"> Soy Pasajero</ion-button>
+          <ion-button [routerLink]="['/inicio']" expand="block" color="secondary"> Soy Pasajero</ion-button>
         </section>
 
       </ion-card-content>
     </ion-card>
-
-div id="container">
-    <ion-text class="texto-bienvenido center">Bienvenido! </ion-text>
-
-    <ion-text>Usuario: {{nameUser}}</ion-text>
-  </div>
-
-
-
-
 
 
 
