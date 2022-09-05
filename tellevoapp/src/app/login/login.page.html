@@ -9,11 +9,11 @@
   <div class="item-content">
     <ion-item class="item">
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input placeholder="Nombre de usuario de Duoc " type="text" minlength="6" [(ngModel)]="user" required></ion-input>
+      <ion-input placeholder="Nombre de usuario de Duoc " type="text" minlength="6" [(ngModel)]="user.name" required></ion-input>
     </ion-item>
     <ion-item class="item">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input placeholder="Ingrese su contraseña" type="password" minlength="8" maxlength="20" [(ngModel)]="password" required></ion-input>
+      <ion-input placeholder="Ingrese su contraseña" type="password" minlength="8" maxlength="20" [(ngModel)]="user.password" required></ion-input>
     </ion-item>
   </div>
   <ion-button color="favorite" type="submit" class="center btn" (click)="onLogin('bottom')">Ingresar</ion-button>
