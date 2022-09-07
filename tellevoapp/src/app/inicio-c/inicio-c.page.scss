@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 * {
     font-family: 'Lato', sans-serif;
-    box-sizing: border-box;
 }
 .toolbar-color {
     background-color: #1a1a1a;
@@ -20,43 +19,26 @@ ion-title {
     display: flex;
 }
 .item-content {
-    margin-top: 1rem;
+    margin-top: 2.5rem;
 }
 .texto {
-  display: flex;
-    margin-left: 1rem;
+    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
-ion-text {
-  margin-right: 1rem;
-}
-ion-card {
-  padding: 0.5rem;
-  margin: 0.5rem;
-}
-ion-card-header {
-  padding-bottom: .5rem;
-}
+.btn {
+    display: block;
 
-ion-card-title {
-  font-size: 1rem;
 }
-ion-button {
-  font-weight: bold;
+.link {
+    margin: 2rem;
+    text-align: center;
 }
-
-ion-card-content {
-  display: flex;
-
-  justify-content: space-between;
-  align-items: center;
+a {
+    text-decoration: none;
 }
-
 .logo-duoc {
-
+    margin-top: 2rem;
    padding-right: 2rem;
-}
-ion-icon {
-  padding-left: 1rem;
+
 }

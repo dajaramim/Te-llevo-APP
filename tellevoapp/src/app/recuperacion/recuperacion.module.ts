@@ -8,12 +8,15 @@ import { RecuperacionPageRoutingModule } from './recuperacion-routing.module';
 
 import { RecuperacionPage } from './recuperacion.page';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecuperacionPageRoutingModule
+    RecuperacionPageRoutingModule,
+
   ],
   declarations: [RecuperacionPage]
 })

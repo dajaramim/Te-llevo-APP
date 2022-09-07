@@ -18,7 +18,15 @@ const routes: Routes = [
   {
     path: 'recuperacion',
     loadChildren: () => import('./recuperacion/recuperacion.module').then( m => m.RecuperacionPageModule)
+  },  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
+  {
+    path: 'inicio-c',
+    loadChildren: () => import('./inicio-c/inicio-c.module').then( m => m.InicioCPageModule)
+  },
+
 ];
 
 @NgModule({
