@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="toolbar">
     <ion-buttons slot="start" >
-      <ion-icon size="large" (click)="presentAlert()" name="arrow-back-outline"></ion-icon>   
+      <ion-icon size="large" (click)="presentAlert()" name="arrow-undo-outline">></ion-icon>   
      </ion-buttons>
     <ion-title>TeLlevo<span>APP</span></ion-title>
   </ion-toolbar>
@@ -21,7 +21,7 @@
       </ion-card-header>
     
       <ion-card-content>
-      <ion-button [routerLink]="['/inicio']"color="favorite" >Pasajero</ion-button>
+      <ion-button [routerLink]="['/inicio/general']"color="favorite" >Pasajero</ion-button>
       <img src="assets/icon/destination.png" alt="foto de destino">
 
       </ion-card-content>

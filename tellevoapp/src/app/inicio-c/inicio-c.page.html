@@ -1,6 +1,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <ion-header>
   <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
     <ion-title>TeLlevo<span>APP</span></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -57,9 +60,9 @@
 
 <!-- TABS -->
 <ion-tab-bar slot="bottom" color="dark">
-  <ion-tab-button button [routerLink]="['/home']" >
+  <ion-tab-button >
     <mat-icon>home</mat-icon>
-    <ion-label>Regresar</ion-label>
+    <ion-label>General</ion-label>
   </ion-tab-button>
 
   <ion-tab-button>
@@ -90,25 +93,27 @@
     </ion-header>
 
     <ion-content id="contenedor-viaje" color="dark" class="ion-padding">
-      <ion-text color="">
+      <ion-text >
         <h1> Encuentra tu viaje</h1>
       </ion-text>
 
-      <div  class="item-content" color="dark">
+      <div class="item-content" color="dark">
+        
         <ion-item id="inpt-viaje" class="item">
           
-          <ion-label position="floating"><mat-icon> edit_location</mat-icon> destino al que te diriges</ion-label>
+          <ion-label position="floating"> <mat-icon> edit_location</mat-icon> destino al que te diriges</ion-label>
           <ion-input placeholder="Comuna / sector " type="text" > </ion-input>
           
         </ion-item>
         
         <ion-item id="inpt-viaje" class="item">
-          <ion-label position="fixed" ><mat-icon>access_time </mat-icon> Hora</ion-label>
-          <ion-input placeholder="00:00 am/pm " type="number" ></ion-input>
+          <mat-icon class="icon-padding">access_time </mat-icon>
+          <ion-label position="fixed" > Hora</ion-label>
+          <ion-input type="time" value="00:00"></ion-input>
         </ion-item>
       </div>
 
-      <ion-text color="">
+      <ion-text>
         <h1> Viajes que coinciden  </h1>
       </ion-text>
       <ion-item color="medium"  id="btn-infoviaje" button  (click)="buttonClick()">

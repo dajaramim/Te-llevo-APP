@@ -7,7 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
-import {MatIconModule} from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { GeneralComponent } from '../general/general.component';
+import { PerfilComponent } from '../perfil/perfil.component';
+import { ValoracionComponent } from '../valoracion/valoracion.component';
 
 @NgModule({
   imports: [
@@ -17,6 +20,6 @@ import {MatIconModule} from '@angular/material/icon'
     InicioPageRoutingModule,
     MatIconModule
   ],
-  declarations: [InicioPage]
+  declarations: [InicioPage, GeneralComponent, PerfilComponent, ValoracionComponent]
 })
 export class InicioPageModule {}
