@@ -21,7 +21,7 @@ export class DbserviceService {
 
   }
 
-  addNoticia(titulo,texto){
+  addViaje(titulo,texto){
     let data=[titulo,texto];
     return this.database.executeSql('INSERT INTO viaje(titulo,texto) VALUES(?,?)',data)
     .then(res =>{
@@ -30,7 +30,7 @@ export class DbserviceService {
 
   }
 
-  updateNoticia(id, titulo, texto){
+  updateViaje(id, titulo, texto){
     let data = [titulo, texto, id];
     return this.database.executeSql('UPDATE viaje SET titulo = ?, texto = ? WHERE id = ?', data)
     .then(data2 =>{
@@ -39,7 +39,7 @@ export class DbserviceService {
 
   }
 
-  deleteNoticia(id){
+  deleteViaje(id){
     return this.database.executeSql('DELETE FROM noticia WHERE id = ?', [id])
     .then(a =>{
       this.buscarViajes();

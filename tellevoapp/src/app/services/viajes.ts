@@ -3,6 +3,6 @@ export class Viajes {
     address: string;
     startTime: number;
     capacity: number;
-    person: string [];
+    person: string[];
     fee: number;
 }
