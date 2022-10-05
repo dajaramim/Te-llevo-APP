@@ -10,7 +10,6 @@ import { InicioPage } from './inicio.page';
 import { MatIconModule } from '@angular/material/icon';
 import { GeneralComponent } from '../general/general.component';
 import { PerfilComponent } from '../perfil/perfil.component';
-import { ValoracionComponent } from '../valoracion/valoracion.component';
 
 @NgModule({
   imports: [
@@ -20,6 +19,6 @@ import { ValoracionComponent } from '../valoracion/valoracion.component';
     InicioPageRoutingModule,
     MatIconModule
   ],
-  declarations: [InicioPage, GeneralComponent, PerfilComponent, ValoracionComponent]
+  declarations: [InicioPage, GeneralComponent, PerfilComponent]
 })
 export class InicioPageModule {}

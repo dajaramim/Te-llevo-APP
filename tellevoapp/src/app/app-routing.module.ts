@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'inicio-c',
     loadChildren: () => import('./inicio-c/inicio-c.module').then( m => m.InicioCPageModule)
   },
+  {
+    path: 'agregar',
+    loadChildren: () => import('./viajes/agregar/agregar.module').then( m => m.AgregarPageModule)
+  },
+  {
+    path: 'modificar',
+    loadChildren: () => import('./viajes/modificar/modificar.module').then( m => m.ModificarPageModule)
+  },
 
 ];
 

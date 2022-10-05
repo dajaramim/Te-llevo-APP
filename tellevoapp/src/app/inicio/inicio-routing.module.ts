@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GeneralComponent } from '../general/general.component';
-import { ValoracionComponent } from '../valoracion/valoracion.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 import { InicioPage } from './inicio.page';
 
@@ -18,10 +17,7 @@ const routes: Routes = [
         path: 'perfil',
         component: PerfilComponent
       },
-      {
-        path: 'valoracion',
-        component: ValoracionComponent
-      }
+
     ]
   }
 ];
