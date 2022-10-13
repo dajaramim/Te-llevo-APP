@@ -21,7 +21,7 @@
       </ion-card-header>
     
       <ion-card-content>
-      <ion-button [routerLink]="['/inicio/general']"color="favorite" >Pasajero</ion-button>
+      <ion-button color="favorite" (click)="onInicio('pasajero')">Pasajero</ion-button>
       <img src="assets/icon/destination.png" alt="foto de destino">
 
       </ion-card-content>
@@ -33,7 +33,7 @@
       </ion-card-header>
     
       <ion-card-content>
-        <ion-button [routerLink]="['/inicio-c']" color="favorite">Conductor</ion-button>
+        <ion-button  (click)="onInicio('conductor')" color="favorite">Conductor</ion-button>
         <img src="assets/icon/coche.png" alt="foto de un coche">
       </ion-card-content>
     </ion-card>

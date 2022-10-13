@@ -1,48 +1,19 @@
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="/assets/icon/avatar.png" />
-      </ion-avatar>
-      <ion-label>
-        <h2>:Usuario:</h2>
-        <h3>:NOMBRE CARRERA:</h3>
-        <p> CONDUCTOR </p>
-      </ion-label>
-    </ion-item>
-
-  </ion-card>
-
+  
   <section id="section" class="full-width">
     <ion-button color="favorite" size="large" id="abrir-modal" expand="block">
-      <mat-icon> directions_car</mat-icon> Agendar Viaje
+      <mat-icon> directions_car</mat-icon> {{btnTipoCliente}}
     </ion-button>
   </section>
 
-  <ion-text color="">
-    <h1> Viajes agendados: </h1>
-  </ion-text>
-
-  <ion-item color="medium" id="btn-infoviaje" button (click)="buttonClick()">
-    <ion-label>
-      Viaje 1 00/00/22 00:00 am/pm
-    </ion-label>
-  </ion-item>
-  <ion-item color="dark" id="btn-infoviaje" button (click)="buttonClick()">
-    <ion-label>
-      Viaje 2 00/00/22 00:00 am/pm
-    </ion-label>
-  </ion-item>
-  <ion-item color="medium" id="btn-infoviaje" button (click)="buttonClick()">
-    <ion-label>
-      Viaje 3 00/00/22 00:00 am/pm
-    </ion-label>
-  </ion-item>
-  <ion-item color="dark" id="btn-infoviaje" button (click)="buttonClick()">
-    <ion-label>
-      Viaje 4 00/00/22 00:00 am/pm
-    </ion-label>
-  </ion-item>
+  <div class="item-content">
+    <div class="texto">
+      <ion-text> Viaje en: </ion-text>
+    </div>
+    <ion-avatar>
+      <img src="/assets/icon/white-clock-icon-18.png" />
+    </ion-avatar>
+  </div>
 </ion-content>
 
 <!-- MODAL -->
@@ -68,29 +39,29 @@
       <div class="item-content" color="dark">
         <ion-item id="inpt-viaje" class="item">
           <mat-icon class="icon-padding"> edit_location</mat-icon>
-          <ion-label position="fixed"> Ruta  </ion-label>
+          <ion-label> Ruta  </ion-label>
           <ion-input placeholder="calle/sector" type="text" > </ion-input>
           
         </ion-item>
         <ion-item id="inpt-viaje" class="item">
           <mat-icon class="icon-padding">date_range</mat-icon>
-          <ion-label position="fixed">Fecha</ion-label>
+          <ion-label class="box-content">Fecha</ion-label>
           <ion-input placeholder="00/00/22" type="date" > </ion-input>
           
         </ion-item>
         <ion-item id="inpt-viaje" class="item">
           <mat-icon class="icon-padding">access_time </mat-icon>
-          <ion-label position="fixed" >Hora</ion-label>
+          <ion-label>Hora</ion-label>
           <ion-input value="00:00" type="time" ></ion-input>
         </ion-item>
         <ion-item id="inpt-viaje" class="item">
           <mat-icon class="icon-padding"> local_atm</mat-icon>
-          <ion-label position="fixed">  Tarifa </ion-label>
+          <ion-label>  Tarifa </ion-label>
           <ion-input placeholder="$" type="text" ></ion-input>
         </ion-item>
         <ion-item id="inpt-viaje" class="item">
           <mat-icon class="icon-padding">person_add</mat-icon>
-          <ion-label position="fixed"> Cupos</ion-label>
+          <ion-label> Cupos</ion-label>
           <ion-input placeholder="0" type="number" ></ion-input>
         </ion-item>
 

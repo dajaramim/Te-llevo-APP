@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { ViewChild } from '@angular/core';
 import { AnimationController } from '@ionic/angular';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,27 @@ import { AnimationController } from '@ionic/angular';
   styleUrls: ['./general.component.scss'],
 })
 export class GeneralComponent implements OnInit {
+  public tipoUser: string;
+  public btnTipoCliente: string;
+  public textoViaje: string;
+  constructor(private animationCtrl: AnimationController, private router: Router, private activeroute: ActivatedRoute) {
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.tipoUser = this.router.getCurrentNavigation().extras.state.cliente;
+        console.log(this.tipoUser);
+        if(this.tipoUser === 'conductor')
+        {
+          this.btnTipoCliente = "Agendar Viaje"
+        }
+        else {
+          this.btnTipoCliente = "Buscar Viaje"
+        };
+      }
+    });
 
-  constructor(private animationCtrl: AnimationController) { }
-
-  n // ANIMACION MODAL
+  }
+  
+   // ANIMACION MODAL
 
 
 enterAnimation = (baseEl: HTMLElement) => {
@@ -62,6 +80,6 @@ confirm() {
 
 
 
-}
+};
 
 

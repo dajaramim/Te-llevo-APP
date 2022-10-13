@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 
@@ -12,7 +12,9 @@ export class HomePage {
   handlerMessage = '';
   roleMessage = '';
   nameUser: any;
+  tipoUser: any;
   public nombre: string = '';
+  public cliente: string = '';
   constructor(private router: Router, private activeroute: ActivatedRoute, private alertController: AlertController) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -21,6 +23,7 @@ export class HomePage {
       }
     });
   }
+ 
   async presentAlert() {
     const alert = await this.alertController.create({
       header: '¿Está seguro de salir?',
@@ -49,5 +52,14 @@ export class HomePage {
       this.router.navigate(['/login']);
 
     }
+  }
+
+  onInicio(tipoCliente: 'conductor' | 'pasajero') { 
+    this.tipoUser = tipoCliente;
+     let navigationExtras: NavigationExtras = {
+       state: { cliente: this.tipoUser}
+    };
+    this.router.navigate(['/inicio/general'], navigationExtras);
+
   }
 }
