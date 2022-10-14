@@ -28,6 +28,8 @@ ion-title {
 }
 .btn {
     display: block;
+    color: #fff;
+ 
 
 }
 .link {
@@ -48,4 +50,7 @@ a {
 
 .box-content {
     padding-right: 3rem;
+}
+ion-list {
+    padding: 0;
 }

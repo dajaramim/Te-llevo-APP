@@ -1,74 +1,74 @@
 <ion-content>
-  
+
   <section id="section" class="full-width">
     <ion-button color="favorite" size="large" id="abrir-modal" expand="block">
-      <mat-icon> directions_car</mat-icon> {{btnTipoCliente}}
+      <mat-icon> directions_car</mat-icon> Agendar Viaje
     </ion-button>
   </section>
 
   <div class="item-content">
     <div class="texto">
-      <ion-text> Viaje en: </ion-text>
+      <ion-text> {{textoViaje}} </ion-text>
     </div>
-    <ion-avatar>
-      <img src="/assets/icon/white-clock-icon-18.png" />
-    </ion-avatar>
+   
   </div>
 </ion-content>
 
 <!-- MODAL -->
-<ion-modal  #modal trigger="abrir-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+<ion-modal #modal trigger="abrir-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
   <ng-template>
-    <ion-header >
+    <ion-header>
       <ion-toolbar color="favorite">
         <ion-buttons slot="start">
-          <ion-button (click)="cancel()"><mat-icon>arrow_back</mat-icon>Regresar </ion-button>
-        </ion-buttons>
-        
-        <ion-buttons slot="end">
-          <ion-button (click)="confirm()" [strong]="true"> Confirmar <mat-icon>done</mat-icon></ion-button>
+          <ion-button (click)="cancel()">
+            <mat-icon>arrow_back</mat-icon>Regresar
+          </ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
 
     <ion-content id="contenedor-viaje" color="dark" class="ion-padding">
-      <ion-text color="">
+      <ion-text>
         <h1>Indica los datos para tu viaje</h1>
       </ion-text>
 
-      <div class="item-content" color="dark">
-        <ion-item id="inpt-viaje" class="item">
-          <mat-icon class="icon-padding"> edit_location</mat-icon>
-          <ion-label> Ruta  </ion-label>
-          <ion-input placeholder="calle/sector" type="text" > </ion-input>
-          
-        </ion-item>
-        <ion-item id="inpt-viaje" class="item">
-          <mat-icon class="icon-padding">date_range</mat-icon>
-          <ion-label class="box-content">Fecha</ion-label>
-          <ion-input placeholder="00/00/22" type="date" > </ion-input>
-          
-        </ion-item>
-        <ion-item id="inpt-viaje" class="item">
-          <mat-icon class="icon-padding">access_time </mat-icon>
-          <ion-label>Hora</ion-label>
-          <ion-input value="00:00" type="time" ></ion-input>
-        </ion-item>
-        <ion-item id="inpt-viaje" class="item">
-          <mat-icon class="icon-padding"> local_atm</mat-icon>
-          <ion-label>  Tarifa </ion-label>
-          <ion-input placeholder="$" type="text" ></ion-input>
-        </ion-item>
-        <ion-item id="inpt-viaje" class="item">
-          <mat-icon class="icon-padding">person_add</mat-icon>
-          <ion-label> Cupos</ion-label>
-          <ion-input placeholder="0" type="number" ></ion-input>
-        </ion-item>
+      <ion-list color="light">
+        
+          <ion-item id="inpt-viaje" class="item">
+            <mat-icon class="icon-padding"> edit_location</mat-icon>
+            <ion-label> Ruta </ion-label>
+            <ion-input placeholder="calle/sector" type="text" [(ngModel)]="calle"> </ion-input>
 
-      </div>
-      
+          </ion-item>
+          <ion-item id="inpt-viaje" class="item">
+            <mat-icon class="icon-padding">date_range</mat-icon>
+            <ion-label class="box-content">Fecha</ion-label>
+            <ion-input placeholder="00/00/22" type="date" [(ngModel)]="fecha"> </ion-input>
 
+          </ion-item>
+          <ion-item id="inpt-viaje" class="item">
+            <mat-icon class="icon-padding">access_time </mat-icon>
+            <ion-label>Hora</ion-label>
+            <ion-input value="00:00" type="time" [(ngModel)]="hora"></ion-input>
+          </ion-item>
+          <ion-item id="inpt-viaje" class="item">
+            <mat-icon class="icon-padding"> local_atm</mat-icon>
+            <ion-label> Tarifa </ion-label>
+            <ion-input placeholder="$" type="text" [(ngModel)]="precio"></ion-input>
+          </ion-item>
+          <ion-item id="inpt-viaje" class="item">
+            <mat-icon class="icon-padding">person_add</mat-icon>
+            <ion-label> Cupos</ion-label>
+            <ion-input placeholder="0" type="number" [(ngModel)]="cupos"></ion-input>
+          </ion-item>
+        
+          <ion-button color="favorite" type="submit" class="center btn" (click)="confirm()" [strong]="true"> Confirmar <mat-icon>done</mat-icon>
+          </ion-button>
       
+      </ion-list>
+
+
+
 
     </ion-content>
   </ng-template>
