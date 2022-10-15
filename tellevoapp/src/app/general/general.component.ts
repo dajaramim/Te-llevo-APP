@@ -7,11 +7,6 @@ import { BdLocalService } from '../services/bd-local.service';
 import { Time } from '@angular/common';
 
 
-
-
-
-
-
 @Component({
   selector: 'app-general',
   templateUrl: './general.component.html',
@@ -24,12 +19,14 @@ export class GeneralComponent implements OnInit {
   public textoViaje: string;
 
 
-
   calle: string;
   fecha: Date;
   hora: Time;
   precio: number;
   cupos: number;
+  viajes: any = [];
+  
+  
   constructor(private animationCtrl: AnimationController, private router: Router, private activeroute: ActivatedRoute, public bdlocalservice: BdLocalService) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
@@ -80,9 +77,17 @@ export class GeneralComponent implements OnInit {
     return this.enterAnimation(baseEl).direction('reverse');
   };
 
-  ngOnInit() {
+   ngOnInit() {
+    
 
-  }
+    
+  };
+
+  ngAfterViewInit() {
+    this.viajes = this.bdlocalservice.cargarViajes();
+
+    console.log(typeof this.viajes);
+  };
   // abrir modal
   @ViewChild(IonModal) modal: IonModal;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
@@ -99,6 +104,7 @@ export class GeneralComponent implements OnInit {
     this.fecha = new Date("01/01/2022");
     this.precio = 0;
     this.cupos = 0;
+    
   }
  
 

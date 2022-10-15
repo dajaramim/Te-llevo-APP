@@ -10,8 +10,13 @@
     <div class="texto">
       <ion-text> {{textoViaje}} </ion-text>
     </div>
-   
+    
+    <ion-list *ngFor="let viaje of viajes; let indexOfelement = index;">
+      <ion-item>Viaje {{indexOfelement + 1}} {{viaje.dateFecha}}  {{viaje.timeHora}}</ion-item>
+    </ion-list>
+  
   </div>
+  
 </ion-content>
 
 <!-- MODAL -->
@@ -49,7 +54,7 @@
           <ion-item id="inpt-viaje" class="item">
             <mat-icon class="icon-padding">access_time </mat-icon>
             <ion-label>Hora</ion-label>
-            <ion-input value="00:00" type="time" [(ngModel)]="hora"></ion-input>
+            <ion-input value="00:00" type="time" min="00:00" max="23:59"[(ngModel)]="hora"></ion-input>
           </ion-item>
           <ion-item id="inpt-viaje" class="item">
             <mat-icon class="icon-padding"> local_atm</mat-icon>
