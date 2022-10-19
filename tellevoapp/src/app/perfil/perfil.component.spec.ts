@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { PerfilComponent } from './perfil.component';
+import { HttpClient } from '@angular/common/http';
 
 describe('PerfilComponent', () => {
   let component: PerfilComponent;

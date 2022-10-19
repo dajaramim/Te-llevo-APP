@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DbserviceService } from './dbservice.service';
+import { BdLocalService } from './bd-local.service';
 
-describe('DbserviceService', () => {
-  let service: DbserviceService;
+describe('BdLocalService', () => {
+  let service: BdLocalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DbserviceService);
+    service = TestBed.inject(BdLocalService);
   });
 
   it('should be created', () => {

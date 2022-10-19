@@ -1,0 +1,20 @@
+{
+    "users": [
+        {
+        "id": 1,
+        "name": "Daniel Jaramillo",
+        "username": "da.jaramillom@duocuc.cl",
+        "password": "hola123456",
+        "career": "Analista Programador"
+
+        },
+        {
+            "id": 2,
+            "name": "Ignacio Torrealba",
+            "username": "ig.torrealba@duocuc.cl",
+            "password": "chao123456",
+            "career": "Analista Programador"
+    
+        }
+    ]
+}
