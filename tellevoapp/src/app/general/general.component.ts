@@ -88,6 +88,7 @@ export class GeneralComponent implements OnInit {
 
   ngAfterViewInit() {
     this.viajes = this.bdlocalservice.cargarViajes();
+    console.log(this.bdlocalservice.cargarViajes());
     
     
   };

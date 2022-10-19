@@ -8,7 +8,9 @@ import { UsersService } from '../services/users.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-
+@Injectable({
+  providedIn: 'root'
+})
 export class LoginPage implements OnInit {
   public user = {
     name: "",
@@ -37,10 +39,8 @@ export class LoginPage implements OnInit {
       {
 
         this.router.navigate(['/home'], navigationExtras);
-        return 0;
+        return true;
         
-        
-
       }     
     }
     
