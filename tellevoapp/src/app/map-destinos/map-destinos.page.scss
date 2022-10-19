@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+.toolbar-color {
+    background-color: #1a1a1a;
+}
+
+span {
+    color: #ffb800;
+}
+ion-title {
+    font-size: 2rem;
+    padding: 1rem;
+}
+.toolbar {
+    height: 10rem;
+    text-align: center;
+    display: flex;
+}
+
+.texto {
+  display: flex;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+ion-text {
+  margin-right: 1rem;
+}
+
+
+ion-button {
+  font-weight: bold;
+}
+
+.mapContainer{
+    width: 100%;
+    height:100%;
+  
+  }
+  
+  capacitor-google-map {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  
+  
+  
+  }
+

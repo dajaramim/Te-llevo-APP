@@ -1,0 +1,19 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>
+      Te-Llevo-app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+  <div class="mapContainer">
+    <capacitor-google-map #map id="map" ></capacitor-google-map>
+
+  </div>
+ 
+  <ion-button color="favorite" type="submit" class="center btn" (click)="onLogin('bottom')">Ingresar</ion-button>
+  <div class="link">
+    <a [routerLink]="['/inicio']">regresar </a>
+  </div>

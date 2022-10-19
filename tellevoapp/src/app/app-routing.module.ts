@@ -23,7 +23,14 @@ const routes: Routes = [
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
-
+  {
+    path: 'map-destinos',
+    loadChildren: () => import('./map-destinos/map-destinos.module').then( m => m.MapDestinosPageModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
 
 
 ];
