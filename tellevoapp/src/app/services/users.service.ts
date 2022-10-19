@@ -6,10 +6,11 @@ import { retry, catchError } from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
 
+
 @Injectable({
     providedIn: 'root'
   })
-export class MapService {
+export class UsersService {
 httpOptions = {
     headers: new HttpHeaders
         ({
@@ -18,9 +19,9 @@ httpOptions = {
         })
     }
 
-apiURL = 'https://github.com/yaravivillegas/ionic/blob/main/db.json';
+apiURL = ' http://192.168.0.129:3000';
     constructor(private http:HttpClient){
-        console.log('ola');
+        console.log('hola');
 
     }
 
@@ -34,8 +35,8 @@ apiURL = 'https://github.com/yaravivillegas/ionic/blob/main/db.json';
  
     // * 
 
-    getLocations():Observable<any>{
-        return this.http.get(this.apiURL).pipe(
+    getUsers():Observable<any>{
+        return this.http.get(this.apiURL+'/users/').pipe(
           retry(3)
         );
       }
