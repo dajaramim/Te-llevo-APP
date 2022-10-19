@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from '../services/users.service';
+
 
 @Component({
   selector: 'app-perfil',
@@ -9,19 +9,26 @@ import { UsersService } from '../services/users.service';
 })
 export class PerfilComponent implements OnInit {
   users: any = [];
+  user: any = [];
 
-  constructor( public UsersService: UsersService) { }
+  constructor( public usersService: UsersService) { }
 
   ngOnInit() {
     
     this.users = this.usuarios();
-
-
+    this.user = this.usuario();
+    
   }
   usuarios(){
-    this.UsersService.getUsers()
+    this.usersService.getUsers()
     .subscribe((data)=>{
       this.users=data;
     }) 
+  }
+  usuario() {
+    this.usersService.getUser(1)
+    .subscribe((data)=>{
+      this.user=data;
+    })
   }
 }

@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
   public user = {
     name: "",
     password: ""
   }
-  constructor(private router: Router, private toastController: ToastController) { }
+  users: any = [];
+
+
+  constructor(private router: Router, private toastController: ToastController, private usersService: UsersService) { }
   
   async onLogin(position: 'top' | 'middle' | 'bottom') {
     const toast_error = await this.toastController.create({
@@ -22,19 +27,35 @@ export class LoginPage implements OnInit {
     });
 
     let navigationExtras: NavigationExtras = {
-      state: {user: this.user.name}
+      state: {
+        user: this.user.name
+      }
     };
-    if (this.user.name.length === 0 || this.user.name.length < 6 || this.user.password.length === 0 || this.user.password.length < 8)
-    {
-      await toast_error.present();
-    }
-    else
-    {
-    this.router.navigate(['/home'], navigationExtras);
+    
+    for (let usuario of this.users){
+      if (this.user.name === usuario.username && this.user.password === usuario.password)
+      {
+
+        this.router.navigate(['/home'], navigationExtras);
+        return 0;
+        
+        
+
+      }     
     }
     
+    await toast_error.present();
+    
+  }
+  
+  usuarios(){
+    this.usersService.getUsers()
+    .subscribe((data)=>{
+      this.users=data;
+    }) 
   }
   ngOnInit() {
+    this.usuarios();
   }
 
 }

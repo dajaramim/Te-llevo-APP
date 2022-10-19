@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,8 +10,10 @@ import { Router} from '@angular/router';
 export class InicioPage implements OnInit {
 
   // ANIMACION MODAL
-
-  constructor(private router: Router) { }
+  public nombreUsuario: string;
+  constructor(private router: Router) { 
+    
+  }
   
   segmentChanged($event) {
     console.log($event.detail.value);

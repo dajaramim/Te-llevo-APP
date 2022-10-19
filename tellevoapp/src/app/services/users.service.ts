@@ -39,6 +39,11 @@ apiURL = ' http://192.168.0.129:3000';
         return this.http.get(this.apiURL+'/users/').pipe(
           retry(3)
         );
-      }
+    }
+  getUser(userId):Observable<any>{
+    return this.http.get(this.apiURL+'/users/'+userId).pipe(
+      retry(3)
+    );
+}
 
 }
