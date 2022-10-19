@@ -85,8 +85,8 @@ export class GeneralComponent implements OnInit {
 
   ngAfterViewInit() {
     this.viajes = this.bdlocalservice.cargarViajes();
-
     console.log(typeof this.viajes);
+    
   };
   // abrir modal
   @ViewChild(IonModal) modal: IonModal;
