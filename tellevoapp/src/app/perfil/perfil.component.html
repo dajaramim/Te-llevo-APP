@@ -2,15 +2,16 @@
   <ion-card>
     <ion-item>
       <ion-avatar class="img-avatar" slot="start">
-        <img src="/assets/icon/avatar.png" />
+        <img src="/assets/icon/{{user.id}}.jpg" />
       </ion-avatar>
     </ion-item>
 
     <ion-item class="user">
-      <ion-list *ngFor="let user of users">
-        <h2>:{{user.name}}:</h2>
-        <h3>:NOMBRE CARRERA:</h3>
-        <p> CONDUCTOR </p>
+      <ion-list >
+        <ion-item>Nombre: {{user.name}}</ion-item>
+        <ion-item>Correo: {{user.username}}</ion-item>
+        <ion-item>Carrera: {{user.career}}</ion-item>
+        
       </ion-list>
     </ion-item>
 </ion-card>

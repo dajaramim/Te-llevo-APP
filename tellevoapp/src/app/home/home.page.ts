@@ -13,13 +13,17 @@ export class HomePage {
   roleMessage = '';
   nameUser: any;
   tipoUser: any;
+  
   public nombre: string = '';
   public cliente: string = '';
   constructor(private router: Router, private activeroute: ActivatedRoute, private alertController: AlertController) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.nameUser = this.router.getCurrentNavigation().extras.state.user;
+ 
+        
         console.log(this.nameUser);
+        
       }
     });
   }
@@ -57,7 +61,9 @@ export class HomePage {
   onInicio(tipoCliente: 'conductor' | 'pasajero') { 
     this.tipoUser = tipoCliente;
      let navigationExtras: NavigationExtras = {
-       state: { cliente: this.tipoUser}
+       state: {
+         cliente: this.tipoUser
+        }
     };
     this.router.navigate(['/inicio/general'], navigationExtras);
 

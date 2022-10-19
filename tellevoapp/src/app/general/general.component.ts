@@ -17,6 +17,7 @@ export class GeneralComponent implements OnInit {
   public tipoUser: string;
   public btnTipoCliente: string;
   public textoViaje: string;
+ 
 
 
   calle: string;
@@ -31,6 +32,8 @@ export class GeneralComponent implements OnInit {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.tipoUser = this.router.getCurrentNavigation().extras.state.cliente;
+        
+
         console.log(this.tipoUser);
         if (this.tipoUser === 'conductor') {
           
@@ -85,6 +88,7 @@ export class GeneralComponent implements OnInit {
 
   ngAfterViewInit() {
     this.viajes = this.bdlocalservice.cargarViajes();
+    console.log(this.bdlocalservice.cargarViajes());
     
     
   };
