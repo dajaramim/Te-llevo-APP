@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import {HttpClient,HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient,HttpHeaders} from '@angular/common/http';
 
-import { retry, catchError } from 'rxjs/operators';
+import { retry} from 'rxjs/operators';
 
 import { Observable } from 'rxjs';
 
@@ -19,7 +19,7 @@ httpOptions = {
         })
     }
 
-apiURL = ' http://192.168.0.129:3000';
+apiURL = 'https://my-json-server.typicode.com/dajaramim/Api-TellevoApp/users';
     constructor(private http:HttpClient){
         console.log('hola');
 
@@ -36,12 +36,12 @@ apiURL = ' http://192.168.0.129:3000';
     // * 
 
     getUsers():Observable<any>{
-        return this.http.get(this.apiURL+'/users/').pipe(
+        return this.http.get(this.apiURL).pipe(
           retry(3)
         );
     }
   getUser(userId):Observable<any>{
-    return this.http.get(this.apiURL+'/users/'+userId).pipe(
+    return this.http.get(this.apiURL+'/'+userId).pipe(
       retry(3)
     );
 }

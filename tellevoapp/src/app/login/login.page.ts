@@ -34,17 +34,18 @@ export class LoginPage implements OnInit {
       }
     };
     
-    for (let usuario of this.users){
-      if (this.user.name === usuario.username && this.user.password === usuario.password)
+     for (let usuario of this.users){ 
+      if (this.user.name ===  usuario.username  && this.user.password ===  usuario.password )
       {
 
         this.router.navigate(['/home'], navigationExtras);
         return true;
         
       }     
-    }
+    } 
     
-    await toast_error.present();
+    
+     await toast_error.present(); 
     
   }
   
