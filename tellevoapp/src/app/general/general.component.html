@@ -39,10 +39,10 @@
 
       <ion-list color="light">
         
-          <ion-item id="inpt-viaje" class="item">
+          <ion-item button (click)="cancel()" [routerLink]="['/mapa-direcciones']" id="inpt-viaje" class="item">
             <mat-icon class="icon-padding"> edit_location</mat-icon>
             <ion-label> Ruta </ion-label>
-            <ion-input placeholder="calle/sector" type="text" [(ngModel)]="calle"> </ion-input>
+            <!-- <ion-input placeholder="calle/sector" type="text" [(ngModel)]="calle"> </ion-input> -->
 
           </ion-item>
           <ion-item id="inpt-viaje" class="item">

@@ -16,7 +16,7 @@ export class HoraViajeGuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const hora = new Date().getHours();
     console.log(hora);
-    if (hora >= 23) {
+    if (hora >= 24) {
       this.router.navigate(['']);
       return false;
       

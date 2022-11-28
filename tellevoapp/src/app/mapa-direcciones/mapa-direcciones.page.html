@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="" color="dark"></ion-back-button>
+    </ion-buttons>
+      <ion-title>TeLlevo<span>APP</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+    <div  id="cont-mapa">
+
+      <div id="mapaBox">
+
+      </div>
+
+    </div>
+
+    <div id="controles">
+
+      <h3>aqui va la direccion :</h3>
+
+      <section id="section" class="full-width">
+        <ion-button [routerLink]="['/inicio/general']" color="favorite" size="large"  expand="block">
+          <ion-icon name="map"> </ion-icon> Guardar direccion
+        </ion-button>
+      </section>
+
+    </div>
+    
+
+</ion-content>

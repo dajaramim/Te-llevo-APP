@@ -16,7 +16,7 @@
       <ion-input placeholder="Ingrese su contraseña" type="password" minlength="8" maxlength="20" [(ngModel)]="user.password" required></ion-input>
     </ion-item>
   </div>
-  <ion-button color="favorite" type="submit" class="center btn" (click)="onLogin('bottom')">Ingresar</ion-button>
+  <ion-button id="btn-login" color="favorite" type="submit" class="center btn" (click)="onLogin('bottom')">Ingresar</ion-button>
   <div class="link">
     <a [routerLink]="['/recuperacion']">Recuperar Contraseña </a>
   </div>
