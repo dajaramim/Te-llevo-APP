@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { UsersService } from '../services/users.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -43,12 +44,9 @@ export class LoginPage implements OnInit {
         
       }     
     } 
-    
-    
      await toast_error.present(); 
     
   }
-  
   usuarios(){
     this.usersService.getUsers()
     .subscribe((data)=>{
