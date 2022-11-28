@@ -14,13 +14,15 @@ describe('Se Inicia aplicacion TeLLevoApp', () => {
     expect(page.getPageTitle()).toContain('TeLlevoAPP');
 
   });
-  // it('# 2 La pagina inicial corresponde a "Login" ',() =>{
-    
+   it('# 2 Verificar que el input se le puede hacer click',() =>{
+     element(by.css(".item-content .item ")).click();
+     browser.driver.sleep(3000);
+     
 
-  // })
-  it('3# No se puede acceder sin usar credenciales',async () => {
+  })
+  it('3# No se puede acceder sin usar credenciales y aparece toast',async () => {
     await element(by.css("ion-button")).click();
-
+    browser.driver.sleep(10000);
 });
 
 
