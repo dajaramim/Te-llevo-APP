@@ -30,8 +30,10 @@ ngOnInit(){
 
 };
 
-// longitud y latitud ......
+// usar orden: longitud y latitud ......
 generarMapaBox(){
+
+  // se Instancia Mapa
   const mapaBox = new mapboxgl.Map({
     container: 'mapaBox',
     style: this.style,
@@ -45,6 +47,8 @@ generarMapaBox(){
 
   });
   mapaBox.resize();   
+
+  //Se configura popup de marcador
   const popup = new Popup()
   .setHTML('<div>'+
   '<h4>mui wenas</h4>'+
@@ -52,6 +56,7 @@ generarMapaBox(){
   '</div>');
 
 
+  // Se instancia el Geocoder de MapBox
   const geocoder = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     flyTo: {
@@ -72,20 +77,33 @@ generarMapaBox(){
     
     mapboxgl: mapboxgl
     });
+
+    //Se crea marcador
+    const marker = new mapboxgl.Marker({
+    
+      draggable: false,
+      color:'red'
+      }).setLngLat([ -71.53299098234962,-33.03305958330198])
+      .addTo(mapaBox)
+      .setPopup(popup);
      
+    //se añade Geocoder a mapa
     mapaBox.addControl(geocoder);
+
 
     mapaBox.addControl(new mapboxgl.NavigationControl());
 
 
+    // Se recuperan datos de busqueda de Geocoder
+    geocoder.on('result', function(e) {
+        
+      console.log(e.result.center)
+      console.log(e.result.place_name)
+     })
 
-  const marker = new mapboxgl.Marker({
-    
-    draggable: false,
-    color:'red'
-    }).setLngLat([ -71.53299098234962,-33.03305958330198])
-    .addTo(mapaBox)
-    .setPopup(popup);
+
+
+
 
 };
   
