@@ -18,8 +18,16 @@ export class MapaDireccionesPage implements OnInit {
     //public mapaBox: mapboxgl.Map;
 public style ='mapbox://styles/ig-torrealba/cl9zyn79l002u14k6eozbqz39';
 
+direccion = " ";
+
+
+public resultado = [];
+
 constructor() {
   mapboxgl.accessToken = environment.MAPBOX_KEY;
+  
+
+
 }
 ionViewDidEnter(){
   this.generarMapaBox();
@@ -95,17 +103,38 @@ generarMapaBox(){
 
 
     // Se recuperan datos de busqueda de Geocoder
-    geocoder.on('result', function(e) {
-        
-      console.log(e.result.center)
-      console.log(e.result.place_name)
-     })
 
 
-
-
+    this.traerResultados(geocoder);
 
 };
+
+  traerResultados(geocoder){
+    geocoder.on('result', function(e) {
+      console.log(e.result.center)
+      //console.log(e.result.place_name)
+
+      this.resultado = e.result.place_name;
+
+      if (!!this.resultado){
+
+        this.direccion = this.resultado;
+        document.getElementById("viaje").innerText = " te dirijes a :";
+          document.getElementById("direccion").innerText = this.direccion;
+          
+      }
+
+      else {
+        this.direccion = "ola"
+
+        
+      }
+      console.log(this.direccion)
+
+
+
+    });
+  }
   
 
 
