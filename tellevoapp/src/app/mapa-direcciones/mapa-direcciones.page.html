@@ -21,11 +21,11 @@
     <div id="cont-destino">
 
       <h4 id="viaje" >    </h4>
-      <h3 id="direccion">  {{ direccion }}</h3>
+      <h3 id="direccion"> </h3>
 
 
       <section id="section" class="full-width">
-        <ion-button [routerLink]="['/inicio/general']" color="favorite" size="large"  expand="block">
+        <ion-button (click)="enviarDireccion()"  [routerLink]="['/inicio/general']" color="favorite" size="large"  expand="block">
           <ion-icon name="map"> </ion-icon> Guardar direccion
         </ion-button>
       </section>

@@ -17,7 +17,9 @@ export class GeneralComponent implements OnInit {
   public tipoUser: string;
   public btnTipoCliente: string;
   public textoViaje: string;
- 
+
+  public destino: string;
+  public usr: string;
 
 
   calle: string;
@@ -32,10 +34,21 @@ export class GeneralComponent implements OnInit {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.tipoUser = this.router.getCurrentNavigation().extras.state.cliente;
-        
+
+        this.destino = this.router.getCurrentNavigation().extras.state.nuevoDestino;
+        this.usr = this.router.getCurrentNavigation().extras.state.usr;
 
         console.log(this.tipoUser);
+
+        console.log("hola traigo el destino desde el mapa :D "+ this.destino + this.usr);
+
+
         if (this.tipoUser === 'conductor') {
+          
+          
+          this.textoViaje = "Tus viajes"
+        }
+        if (this.usr === 'conductor') {
           
           
           this.textoViaje = "Tus viajes"

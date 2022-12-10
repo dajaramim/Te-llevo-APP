@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import { Router, NavigationExtras } from '@angular/router';
 
 
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
@@ -18,12 +19,16 @@ export class MapaDireccionesPage implements OnInit {
     //public mapaBox: mapboxgl.Map;
 public style ='mapbox://styles/ig-torrealba/cl9zyn79l002u14k6eozbqz39';
 
+// resultados de geocoder
 direccion = " ";
-
-
 public resultado = [];
 
-constructor() {
+
+nuevoDestino:any;
+usr : any;
+
+
+constructor( private router: Router) {
   mapboxgl.accessToken = environment.MAPBOX_KEY;
   
 
@@ -33,10 +38,11 @@ ionViewDidEnter(){
   this.generarMapaBox();
 
 }
-
 ngOnInit(){
 
 };
+
+
 
 // usar orden: longitud y latitud ......
 generarMapaBox(){
@@ -122,6 +128,7 @@ generarMapaBox(){
         document.getElementById("viaje").innerText = " te dirijes a :";
           document.getElementById("direccion").innerText = this.direccion;
           
+          
       }
 
       else {
@@ -130,13 +137,24 @@ generarMapaBox(){
         
       }
       console.log(this.direccion)
+      return this.direccion;
 
 
 
     });
   }
   
-
+  enviarDireccion(){
+    let navigationExtras : NavigationExtras = {
+      state:{
+        nuevoDestino : this.direccion,
+        usr : "conductor"
+      }
+  
+    };
+    this.router.navigate(['/inicio/general'],navigationExtras);
+  
+  };
 
   
 }
