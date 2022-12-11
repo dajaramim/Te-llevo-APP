@@ -104,12 +104,9 @@ generarMapaBox(){
     //se añade Geocoder a mapa
     mapaBox.addControl(geocoder);
 
-
     mapaBox.addControl(new mapboxgl.NavigationControl());
 
-
     // Se recuperan datos de busqueda de Geocoder
-
 
     this.traerResultados(geocoder);
 
@@ -127,28 +124,25 @@ generarMapaBox(){
         this.direccion = this.resultado;
         document.getElementById("viaje").innerText = " te dirijes a :";
           document.getElementById("direccion").innerText = this.direccion;
-          
-          
+            
       }
 
       else {
-        this.direccion = "ola"
+        this.direccion = "nada"
 
-        
       }
       console.log(this.direccion)
       return this.direccion;
 
-
-
     });
+    
   }
-  
   enviarDireccion(){
+    let dato = document.getElementById("direccion").innerText;
+
     let navigationExtras : NavigationExtras = {
       state:{
-        nuevoDestino : this.direccion,
-        usr : "conductor"
+        nuevoDestino : dato
       }
   
     };
