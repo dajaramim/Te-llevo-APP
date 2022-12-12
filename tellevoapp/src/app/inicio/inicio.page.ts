@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class InicioPage implements OnInit {
 
-  // ANIMACION MODAL
+
   public nombreUsuario: string;
   constructor(private router: Router) { 
     

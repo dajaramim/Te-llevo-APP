@@ -12,7 +12,7 @@
     </div>
     
     <ion-list *ngFor="let viaje of viajes; let indexOfelement = index;">
-      <ion-item>Viaje {{indexOfelement + 1}} {{viaje.dateFecha}}  {{viaje.timeHora}}</ion-item>
+      <ion-item button>  {{indexOfelement + 1}} {{viaje.strCalle}} {{viaje.dateFecha}} <p>hora de salida: </p>{{viaje.timeHora}}  <p>tarifa: </p>{{viaje.numPrecio}} <p>cupos: </p>{{viaje.numCupos}}</ion-item>
     </ion-list>
   
   </div>
@@ -35,13 +35,18 @@
     <ion-content id="contenedor-viaje" color="dark" class="ion-padding">
       <ion-text>
         <h1>Indica los datos para tu viaje</h1>
+
+
+
       </ion-text>
 
       <ion-list color="light">
         
           <ion-item button (click)="cancel()" [routerLink]="['/mapa-direcciones']" id="inpt-viaje" class="item">
             <mat-icon class="icon-padding"> edit_location</mat-icon>
-            <ion-label> Ruta </ion-label>
+            <ion-label > </ion-label>
+            <ion-input id="direccion" placeholder={{destino}} type="text" [(ngModel)]="calle"> </ion-input>
+
             <!-- <ion-input placeholder="calle/sector" type="text" [(ngModel)]="calle"> </ion-input> -->
 
           </ion-item>

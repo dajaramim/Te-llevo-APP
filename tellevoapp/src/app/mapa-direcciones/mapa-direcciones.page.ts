@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import { Router, NavigationExtras } from '@angular/router';
 
 
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
@@ -18,17 +19,30 @@ export class MapaDireccionesPage implements OnInit {
     //public mapaBox: mapboxgl.Map;
 public style ='mapbox://styles/ig-torrealba/cl9zyn79l002u14k6eozbqz39';
 
-constructor() {
+// resultados de geocoder
+direccion = " ";
+public resultado = [];
+
+
+nuevoDestino:any;
+usr : any;
+
+
+constructor( private router: Router) {
   mapboxgl.accessToken = environment.MAPBOX_KEY;
+  
+
+
 }
 ionViewDidEnter(){
   this.generarMapaBox();
 
 }
-
 ngOnInit(){
 
 };
+
+
 
 // usar orden: longitud y latitud ......
 generarMapaBox(){
@@ -90,24 +104,51 @@ generarMapaBox(){
     //se añade Geocoder a mapa
     mapaBox.addControl(geocoder);
 
-
     mapaBox.addControl(new mapboxgl.NavigationControl());
 
-
     // Se recuperan datos de busqueda de Geocoder
-    geocoder.on('result', function(e) {
-        
-      console.log(e.result.center)
-      console.log(e.result.place_name)
-     })
 
-
-
-
+    this.traerResultados(geocoder);
 
 };
-  
 
+  traerResultados(geocoder){
+    geocoder.on('result', function(e) {
+      console.log(e.result.center)
+      //console.log(e.result.place_name)
+
+      this.resultado = e.result.place_name;
+
+      if (!!this.resultado){
+
+        this.direccion = this.resultado;
+        document.getElementById("viaje").innerText = " te dirijes a :";
+          document.getElementById("direccion").innerText = this.direccion;
+            
+      }
+
+      else {
+        this.direccion = "nada"
+
+      }
+      console.log(this.direccion)
+      return this.direccion;
+
+    });
+    
+  }
+  enviarDireccion(){
+    let dato = document.getElementById("direccion").innerText;
+
+    let navigationExtras : NavigationExtras = {
+      state:{
+        nuevoDestino : dato
+      }
+  
+    };
+    this.router.navigate(['/inicio/general'],navigationExtras);
+  
+  };
 
   
 }

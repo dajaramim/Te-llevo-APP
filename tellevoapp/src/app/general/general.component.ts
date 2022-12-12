@@ -17,9 +17,12 @@ export class GeneralComponent implements OnInit {
   public tipoUser: string;
   public btnTipoCliente: string;
   public textoViaje: string;
- 
+
+  public destino: any;
+  public usr: any;
 
 
+  ide: number ;
   calle: string;
   fecha: Date;
   hora: Time;
@@ -32,19 +35,31 @@ export class GeneralComponent implements OnInit {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.tipoUser = this.router.getCurrentNavigation().extras.state.cliente;
-        
+
+        // viene de pag mapa
+        this.destino = this.router.getCurrentNavigation().extras.state.nuevoDestino;
+        this.usr = this.router.getCurrentNavigation().extras.state.usr;
+        console.log("hola traigo el destino desde el mapa :D "+ this.destino);
+        this.calle =  this.destino;
+
+
 
         console.log(this.tipoUser);
-        if (this.tipoUser === 'conductor') {
+
+
+        if (this.tipoUser === 'pasajero') {
           
-          
-          this.textoViaje = "Tus viajes"
-        }
-        else {
           document.getElementById("section").style.display = "none";
           this.textoViaje = "Viajes disponibles"
+          
+        }
+        else {
+          this.textoViaje = "Tus viajes"
+
+
         };
       }
+
     });
 
   }
@@ -102,13 +117,14 @@ export class GeneralComponent implements OnInit {
   }
 
   confirm() {
-    this.bdlocalservice.guardarViaje(this.calle, this.fecha, this.hora, this.precio, this.cupos)
+    this.bdlocalservice.guardarViaje(this.ide ,this.calle, this.fecha, this.hora, this.precio, this.cupos)
     this.modal.dismiss(this.name, 'confirm');
-    this.calle = "";
-    this.fecha = new Date("01/01/2022");
-    this.precio = 0;
-    this.cupos = 0;
+
+    this.ide + 1;
+
+    this.viajes = this.bdlocalservice.cargarViajes()
     
+
   }
  
 
