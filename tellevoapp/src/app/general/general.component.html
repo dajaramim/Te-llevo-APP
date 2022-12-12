@@ -11,9 +11,28 @@
       <ion-text> {{textoViaje}} </ion-text>
     </div>
     
-    <ion-list *ngFor="let viaje of viajes; let indexOfelement = index;">
-      <ion-item button>  {{indexOfelement + 1}} {{viaje.strCalle}} {{viaje.dateFecha}} <p>hora de salida: </p>{{viaje.timeHora}}  <p>tarifa: </p>{{viaje.numPrecio}} <p>cupos: </p>{{viaje.numCupos}}</ion-item>
-    </ion-list>
+    <!-- Grupo de acordion donde se listan los viajes -->
+    <ion-accordion-group *ngFor="let viaje of viajes; let indexOfelement = index;">
+      <ion-accordion value="first">
+        <ion-item slot="header" >
+          <ion-label style="font-size: small;">{{indexOfelement + 1}} - {{viaje.strCalle}}</ion-label>
+
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <p>Direccion completa: <span> {{viaje.strCalle}}.</span></p>
+          <p>Hora de salida:   <span> {{viaje.timeHora}}</span></p>
+          <p>Fecha: <span> {{viaje.dateFecha}}</span></p>
+          <p>Tarifa: <span>${{viaje.numPrecio}}</span> </p>
+          <p>Cupos: <span> {{viaje.numCupos}}</span> </p>
+                
+        </div>
+      </ion-accordion>
+
+    </ion-accordion-group>
+    
+    <!-- <ion-list >
+      <ion-item button>  </ion-item>
+    </ion-list> -->
   
   </div>
   

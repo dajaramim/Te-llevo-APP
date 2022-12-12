@@ -42,6 +42,18 @@ ngOnInit(){
 
 };
 
+// Se abre modal de creacion de viaje, al abandonar la pagina Seleccion de destino
+ionViewDidLeave(){
+  this.abrirModal();
+
+};
+abrirModal(){
+    
+  document.getElementById("abrir-modal").click();
+
+
+
+};
 
 
 // usar orden: longitud y latitud ......
@@ -149,6 +161,8 @@ generarMapaBox(){
     this.router.navigate(['/inicio/general'],navigationExtras);
   
   };
+
+
 
   
 }
