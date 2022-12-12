@@ -17,6 +17,7 @@ export class GeneralComponent implements OnInit {
   public tipoUser: string;
   public btnTipoCliente: string;
   public textoViaje: string;
+  public textoTomar: string;
 
   public destino: any;
   public usr: any;
@@ -50,13 +51,20 @@ export class GeneralComponent implements OnInit {
         if (this.tipoUser === 'pasajero') {
           
           document.getElementById("section").style.display = "none";
+          
           this.textoViaje = "Viajes disponibles"
           
+          this.textoTomar= "Tomar"
+        }
+        else if (this.tipoUser === 'conductor') {
+          
+          
+          this.textoViaje = "Tus viajes"
+          this.textoTomar= "Empezar"
+
         }
         else {
-          this.textoViaje = "Tus viajes"
-
-
+          this.tipoUser = ''
         };
       }
 
