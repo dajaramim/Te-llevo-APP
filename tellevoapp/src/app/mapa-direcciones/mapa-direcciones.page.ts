@@ -5,9 +5,6 @@ import { Router, NavigationExtras } from '@angular/router';
 
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
-import { Geolocation } from '@capacitor/geolocation';
-
-
 import{Popup} from 'mapbox-gl';
 
 @Component({
@@ -32,9 +29,6 @@ usr : any;
 constructor( private router: Router) {
   mapboxgl.accessToken = environment.MAPBOX_KEY;
   
-
-
-
 }
 ionViewDidEnter(){
   this.generarMapaBox();
@@ -44,9 +38,7 @@ ionViewDidEnter(){
 }
 ngOnInit(){
 
-
 };
-
 
 // Se abre modal de creacion de viaje, al abandonar la pagina Seleccion de destino
 ionViewDidLeave(){
@@ -110,13 +102,12 @@ generarMapaBox(){
     });
 
     //Se crea marcador
-    
-
+  
     const marker = new mapboxgl.Marker({
     
       draggable: false,
       color:'red'
-      }).setLngLat()
+      }).setLngLat([-71.53299098234962,-33.03305958330198])
       .addTo(mapaBox)
       .setPopup(popup);
      
@@ -147,7 +138,6 @@ generarMapaBox(){
           document.getElementById("direccion").innerText = this.direccion;
             
       }
-
       else {
         this.direccion = "nada"
 
@@ -171,15 +161,6 @@ generarMapaBox(){
   
   };
 
-  async pedirUbicacion(){
-    // se pide localizacion,, traer el dato de pagina anterior
-      const coordinates = await Geolocation.getCurrentPosition();
-      let lng = coordinates.coords.longitude;
-      let lat = coordinates.coords.latitude;
-    
-      console.log('Current position:', coordinates.coords.longitude, coordinates.coords.latitude);
-    
-  }
 
 
 
