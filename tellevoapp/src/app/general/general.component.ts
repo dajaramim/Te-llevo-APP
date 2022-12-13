@@ -115,7 +115,13 @@ export class GeneralComponent implements OnInit {
     
     
   };
-  // abrir modal
+
+
+
+
+
+    // abrir modal
+    //toma el elemento IonModal del documento html y lo usa en la funcion
   @ViewChild(IonModal) modal: IonModal;
   message = 'This modal example uses triggers to automatically open a modal when the button is clicked.';
   name: string;

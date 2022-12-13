@@ -11,25 +11,30 @@
       <ion-text> {{textoViaje}} </ion-text>
     </div>
 
-    <ion-list *ngFor="let viaje of viajes; let indexOfelement = index;">
+    
+    <!-- Grupo de acordion donde se listan los viajes -->
+    <ion-accordion-group *ngFor="let viaje of viajes; let indexOfelement = index;">
+      <ion-accordion value="first">
+        <ion-item slot="header" >
+          <ion-label style="font-size: small;">{{indexOfelement + 1}} - {{viaje.strCalle}}</ion-label>
 
-      <ion-item button id="click-trigger"> Viaje {{indexOfelement + 1}}: {{viaje.dateFecha}} Hora: {{viaje.timeHora}}
-      </ion-item>
-      <ion-popover trigger="click-trigger" triggerAction="click">
-        <ng-template>
-          <ion-content class="ion-padding">
-            <ion-label>Dirección: {{viaje.strCalle}}.</ion-label>
-            <ion-label>Fecha: {{viaje.dateFecha}}.</ion-label>
-            <ion-label>Hora: {{viaje.timeHora}}.</ion-label>
-            <ion-label>Precio: ${{viaje.numPrecio}}.</ion-label>
-            <ion-label>Cupos: {{viaje.numCupos}}.</ion-label>
-            <ion-button color="dark">{{textoTomar}} viaje</ion-button>
+        </ion-item>
+        <div class="ion-padding" slot="content">
+          <p>Direccion completa: <span> {{viaje.strCalle}}.</span></p>
+          <p>Hora de salida:   <span> {{viaje.timeHora}}</span></p>
+          <p>Fecha: <span> {{viaje.dateFecha}}</span></p>
+          <p>Tarifa: <span>${{viaje.numPrecio}}</span> </p>
+          <p>Cupos: <span> {{viaje.numCupos}}</span> </p>
+                
+        </div>
+      </ion-accordion>
 
-
-          </ion-content>
-        </ng-template>
-      </ion-popover>
-    </ion-list>
+    </ion-accordion-group>
+    
+    <!-- <ion-list >
+      <ion-item button>  </ion-item>
+    </ion-list> -->
+  
 
   </div>
 
