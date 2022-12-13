@@ -3,9 +3,9 @@ import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 import { Router, NavigationExtras } from '@angular/router';
 
-
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
+import { Geolocation } from '@capacitor/geolocation';
 
 
 import{Popup} from 'mapbox-gl';
@@ -15,6 +15,7 @@ import{Popup} from 'mapbox-gl';
   templateUrl: './mapa-direcciones.page.html',
   styleUrls: ['./mapa-direcciones.page.scss'],
 })
+
 export class MapaDireccionesPage implements OnInit {
     //public mapaBox: mapboxgl.Map;
 public style ='mapbox://styles/ig-torrealba/cl9zyn79l002u14k6eozbqz39';
@@ -33,14 +34,19 @@ constructor( private router: Router) {
   
 
 
+
 }
 ionViewDidEnter(){
   this.generarMapaBox();
 
+
+
 }
 ngOnInit(){
 
+
 };
+
 
 // Se abre modal de creacion de viaje, al abandonar la pagina Seleccion de destino
 ionViewDidLeave(){
@@ -50,14 +56,13 @@ ionViewDidLeave(){
 abrirModal(){
     
   document.getElementById("abrir-modal").click();
-
-
-
 };
+
 
 
 // usar orden: longitud y latitud ......
 generarMapaBox(){
+  
 
   // se Instancia Mapa
   const mapaBox = new mapboxgl.Map({
@@ -77,7 +82,7 @@ generarMapaBox(){
   //Se configura popup de marcador
   const popup = new Popup()
   .setHTML('<div>'+
-  '<h4>mui wenas</h4>'+
+  '<h4>Te encuentras aqui</h4>'+
   '<span>si</span>'+
   '</div>');
 
@@ -105,11 +110,13 @@ generarMapaBox(){
     });
 
     //Se crea marcador
+    
+
     const marker = new mapboxgl.Marker({
     
       draggable: false,
       color:'red'
-      }).setLngLat([ -71.53299098234962,-33.03305958330198])
+      }).setLngLat()
       .addTo(mapaBox)
       .setPopup(popup);
      
@@ -120,7 +127,9 @@ generarMapaBox(){
 
     // Se recuperan datos de busqueda de Geocoder
 
+
     this.traerResultados(geocoder);
+
 
 };
 
@@ -161,6 +170,16 @@ generarMapaBox(){
     this.router.navigate(['/inicio/general'],navigationExtras);
   
   };
+
+  async pedirUbicacion(){
+    // se pide localizacion,, traer el dato de pagina anterior
+      const coordinates = await Geolocation.getCurrentPosition();
+      let lng = coordinates.coords.longitude;
+      let lat = coordinates.coords.latitude;
+    
+      console.log('Current position:', coordinates.coords.longitude, coordinates.coords.latitude);
+    
+  }
 
 
 
